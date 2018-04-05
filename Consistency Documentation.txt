@@ -1,0 +1,1 @@
+Consistency (C) means a strong consistency. For example, if a server receives a data change request with strong consistency, that means that all upcoming requests to any server in the cluster shall see the same change immediately after that.
