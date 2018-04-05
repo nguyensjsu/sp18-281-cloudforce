@@ -1,1 +1,6 @@
+Basic Consistency definition:
 Consistency (C) means a strong consistency. For example, if a server receives a data change request with strong consistency, that means that all upcoming requests to any server in the cluster shall see the same change immediately after that.
+
+But actually consistency cannot be attained in real time and what we get in return is Eventual consistency
+
+Eventual consistency is a consistency model used in distributed computing to achieve high availability that informally guarantees that, if no new updates are made to a given data item, eventually all accesses to that item will return the last updated value.[1] Eventual consistency, also called optimistic replication,[2] is widely deployed in distributed systems, and has origins in early mobile computing projects.[3] A system that has achieved eventual consistency is often said to have converged, or achieved replica convergence.[4] Eventual consistency is a weak guarantee – most stronger models, like linearizability are trivially eventually consistent, but a system that is merely eventually consistent does not usually fulfill these stronger constraints.
