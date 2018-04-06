@@ -47,6 +47,13 @@ becomes overloaded, it can be scaled using the x-axis technique of replication. 
 written to past years’ servers, most servers can be simple read-only replicas
 
 
+## Scaling a SAAS Application
+
+
+Can your application scale? Out of the box, many applications cannot scale well. They are not designed to handle scenarios like multiple users accessing the same pieces of data, load balanced servers, etc. Well-designed SaaS applications will need to have a strong layer between the data and the application so the data backend can scale separately from the business logic and presentation layers. They will also need to be able to provide their business logic via APIs so that mobile applications (and other non-Web clients) can be built, as well as enable integrations with partners' and customers' systems. Again, these are all things that are typically not addressed with "shrink wrapped" software, but for SaaS they are virtually mandatory.
+
+
+
 
 
 
