@@ -1,0 +1,28 @@
+
+
+
+.logo-left{
+	max-width : 30px;
+	width : 10%;
+}
+
+
+.style-font-header{
+	font-size: 18px;
+	font-weight: 700;
+	font-family: 'Courier New'
+}
+
+.style-font-header li{
+	margin-left: 15px;
+	margin-right: 15px;
+}
+
+.custom{
+	background-color: white !important;
+}
+
+.image-background{
+	max-width: 100%
+}
+
