@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Header</title>
+
+    <style type="text/css">
+        .inner {
+            display: inline-block;
+        }
+        .flashy{
+
+            font: 3em fs_sammyregular,Arial,Helvetica,sans-serif;
+            line-height: 1;
+            text-transform: none;
+            margin: 0;
+        }
+
+    </style>
+
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!-- <h1>MAMA</h1> -->
+
+<div class="container px-5 py-3">
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#">
+            <img className="logo-left"
+                 src="logo.png"
+                 alt="Freelancer Logo"
+                 data-display="block">
+
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+                aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav ml-auto style-font-header">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">View Menus</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Create Account</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Login</a>
+                </li>
+            </ul>
+            <!-- <span class="navbar-text">
+                Navbar text with an inline element
+            </span> -->
+
+
+        </div>
+    </nav>
+    <div id="products">
+        <div>
+            Burger Menu
+        </div>
+        <div>
+            <section class="container-fluid hero product-hero">
+                <div class="row content clearfix">
+                    <hgroup class="col-sm-6 text-left title-group">
+                        <a href="#" class="close-product-detail" aria-hidden="true" aria-label="Close product detail"><i
+                                class="icon icon_close-gray"></i></a>
+                        <h1 class="title">
+                            Sourdough KING™ </h1>
+                        <h2 class="subtitle flashy">
+                            Flame-grilled to perfection. </h2>
+                    </hgroup>
+                    <div class="image col-sm-6 text-right">
+                        <img typeof="foaf:Image"
+                             src="https://www.bk.com/sites/default/files/02774-2-BK_Web_SourdoughKing_500x540_CR-R.png"
+                             alt="Sourdough King" title="Sourdough King"></div>
+                    <div class="col-sm-6 text-left">
+                        <p>
+                        </p>
+                        <div>SOURDOUGH KING<sup>™</sup> burger features more than 1/2 lbs.* of savory
+                            flame-grilled 100%
+                            beef, melted American cheese, thick cut bacon, freshly sliced onions &amp; our creamy
+                            signature sauce all on a soft sourdough bun.
+                        </div>
+                        <div>&nbsp;</div>
+                        <div><span style="font-size: 13.008px;">*Weight based on pre-cooked patties.</span></div>
+                        <div>&nbsp;</div>
+                        <p></p>
+                    </div>
+                    <div class="col-sm-6 post-description">
+                        <img src="/sites/all/themes/custom/bk_theme/img/food-quality/our-burgers/CrownStandard.png"
+                             class="logo top-icon" alt="High Quality Crown standard Commitment">
+                        <a href="/food-quality" class="btn-food-quality bk-btn bk-btn-orange">Quality Commitment</a>
+                    </div>
+
+                </div>
+            </section>
+            <section class="container-fluid nutrition">
+
+                <div class="row content">
+                    <div class="nutrition-header clearfix">
+                        <h3 class="sectionTitle">
+                            Nutrition Information:
+                        </h3>
+                        <div class="links">
+                            <a class="add-to-mymeal-link desktop-m nutrition-add hidden-xs" href="javascript:;"
+                               title="Add to my meal" role="button">
+                                <span class="marker"></span><span class="circle"><i class="fa fa-plus"></i></span>
+                                <h2 class="sectionTitle">Add to my meal</h2>
+                            </a>
+                            <a class="custom-ingredients-link hidden-xs" href="javascript:;">
+                                <h3 class="sectionTitle">Customize ingredients</h3><i class="icon icon_heart"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="nutrition-wrapper">
+                        <div class="nutrition-info">
+                            <form class="nutrition-form" data-product-has-ingredients="true">
+
+                                <div class="row ingredients center-block">
+                                    <input type="hidden" class="nutrition-item nutrition-ingredient-parent"
+                                           value="44379">
+                                    <h4>Customize with Premium Ingredients <span class="sr-only">You can toggle opt in on what you want below</span>
+                                    </h4>
+                                    <div class="col-xs-12 col-sm-4">
+                                        <label class="ingredient checkbox"> <input type="checkbox"
+                                                                                   class="nutrition-item nutrition-ingredient"
+                                                                                   value="490" checked="">
+                                            <span>Onions</span>
+                                        </label>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-4">
+                                        <label class="ingredient checkbox"> <input type="checkbox"
+                                                                                   class="nutrition-item nutrition-ingredient"
+                                                                                   value="44377" checked="">
+                                            <span>Tomato Pepper Sauce</span>
+                                        </label>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-4">
+                                        <label class="ingredient checkbox"> <input type="checkbox"
+                                                                                   class="nutrition-item nutrition-ingredient"
+                                                                                   value="44375" checked="">
+                                            <span>Salt &amp; Pepper Seasoning</span>
+                                        </label>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-4">
+                                        <label class="ingredient checkbox"> <input type="checkbox"
+                                                                                   class="nutrition-item nutrition-ingredient"
+                                                                                   value="44351" checked="">
+                                            <span>WHOPPER® Beef Patty</span>
+                                        </label>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-4">
+                                        <label class="ingredient checkbox"> <input type="checkbox"
+                                                                                   class="nutrition-item nutrition-ingredient"
+                                                                                   value="44372" checked="">
+                                            <span>Sourdough Bread</span>
+                                        </label>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-4">
+                                        <label class="ingredient checkbox"> <input type="checkbox"
+                                                                                   class="nutrition-item nutrition-ingredient"
+                                                                                   value="449" checked="">
+                                            <span>American Cheese</span>
+                                        </label>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-4">
+                                        <label class="ingredient checkbox"> <input type="checkbox"
+                                                                                   class="nutrition-item nutrition-ingredient"
+                                                                                   value="509" checked="">
+                                            <span>Bacon</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="row actions">
+                                    <div class="col-xs-12">
+                                        <button class="bk-btn bk-btn-lightBrown nutrition-add" type="submit"
+                                                data-ga="send,event,nutritionInfo,click,addToMeal">
+                                            Add to My Meal<i class="icon icon_addToMeal-white"></i>
+                                        </button>
+                                        <button class="bk-btn bk-btn-yellow" type="button" data-toggle="modal"
+                                                data-target="#myModal"
+                                                data-ga="send,event,nutritionInfo,click,viewMeal">
+                                            Show My Meal<i class="icon icon_myMeal-white"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="nutrition-content">
+                                <div class="nutrition-data">
+                                    <div class="">
+                                        <ul>
+                                            <li class="nutri-wrapper calories">
+                                                <div class="nutri-item"><h5 class="label">Calories <span class="abbr">(Kcal)</span>
+                                                </h5>
+                                                    <p class="value"><span class="number">970</span></p></div>
+                                            </li>
+                                            <li class="nutri-wrapper fat">
+                                                <div class="nutri-item"><h5 class="label">Fat <span
+                                                        class="abbr">(g)</span></h5>
+                                                    <p class="value"><span class="number">61</span><abbr
+                                                            class="unit">g</abbr></p></div>
+                                            </li>
+                                            <li class="nutri-wrapper saturatedfat">
+                                                <div class="nutri-item"><h5 class="label">Saturated Fat <span
+                                                        class="abbr">(g)</span></h5>
+                                                    <p class="value"><span class="number">24</span><abbr
+                                                            class="unit">g</abbr></p></div>
+                                            </li>
+                                            <li class="nutri-wrapper transfat">
+                                                <div class="nutri-item"><h5 class="label">Trans Fat <span class="abbr">(g)</span>
+                                                </h5>
+                                                    <p class="value"><span class="number">3</span><abbr
+                                                            class="unit">g</abbr></p></div>
+                                            </li>
+                                            <li class="nutri-wrapper cholesterol">
+                                                <div class="nutri-item"><h5 class="label">Cholesterol <span
+                                                        class="abbr">(mg)</span></h5>
+                                                    <p class="value"><span class="number">205</span><abbr class="unit">mg</abbr>
+                                                    </p></div>
+                                            </li>
+                                            <li class="nutri-wrapper sodium">
+                                                <div class="nutri-item"><h5 class="label">Sodium <span
+                                                        class="abbr">(mg)</span></h5>
+                                                    <p class="value"><span class="number">1640</span><abbr class="unit">mg</abbr>
+                                                    </p></div>
+                                            </li>
+                                            <li class="nutri-wrapper carbohydrates">
+                                                <div class="nutri-item"><h5 class="label">Carbohydrates <span
+                                                        class="abbr">(g)</span></h5>
+                                                    <p class="value"><span class="number">52</span><abbr
+                                                            class="unit">g</abbr></p></div>
+                                            </li>
+                                            <li class="nutri-wrapper fiber">
+                                                <div class="nutri-item"><h5 class="label">Fiber <span
+                                                        class="abbr">(g)</span></h5>
+                                                    <p class="value"><span class="number">2</span><abbr
+                                                            class="unit">g</abbr></p></div>
+                                            </li>
+                                            <li class="nutri-wrapper sugar">
+                                                <div class="nutri-item"><h5 class="label">Sugar <span
+                                                        class="abbr">(g)</span></h5>
+                                                    <p class="value"><span class="number">12</span><abbr
+                                                            class="unit">g</abbr></p></div>
+                                            </li>
+                                            <li class="nutri-wrapper protein">
+                                                <div class="nutri-item"><h5 class="label">Protein <span
+                                                        class="abbr">(g)</span></h5>
+                                                    <p class="value"><span class="number">55</span><abbr
+                                                            class="unit">g</abbr></p></div>
+                                            </li>
+                                        </ul>
+                                        <a class="add-to-mymeal-link nutrition-add  hidden-sm hidden-md hidden-lg"
+                                           href="javascript:;" title="Add to my meal" role="button"><span
+                                                class="marker"></span><span class="circle"><i
+                                                class="fa fa-plus"></i></span>
+                                            <h2 class="sectionTitle">Add to my meal</h2></a><a
+                                            class="more-info-link hidden-sm hidden-md hidden-lg" href="javascript:;"><h2
+                                            class="sectionTitle">Customize ingredients</h2><i
+                                            class="icon icon_heart"></i></a></div>
+                                </div>
+                                <div class="allergens"><span class="allergens-list"><h3
+                                        class="sectionTitle">Allergens: </h3> <span
+                                        class="allergen-item wheat">Wheat</span><span
+                                        class="allergen-item soy">Soy</span><span
+                                        class="allergen-item egg">Egg</span><span class="allergen-item milk">Milk</span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+        </div>
+    </div>
+
+</div>
+</body>
