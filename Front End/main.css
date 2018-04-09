@@ -2,8 +2,21 @@
 
 
 .logo-left{
-	max-width : 30px;
-	width : 10%;
+	/*height : 150px;*/
+}
+
+
+.home-form-go{
+	background-image: url(back.jpg);
+	background-repeat: no-repeat;
+	background-size: 900px 500px;
+}
+
+
+#frmGetStarted{
+	font-family: 'Overlock', cursive;
+	font-weight: bolder;
+	width: 350px;
 }
 
 
@@ -26,3 +39,12 @@
 	max-width: 100%
 }
 
+.top-left {
+	background-color: rgb(153, 153, 153, 0.9);
+	position: absolute;
+	top: 165px;
+	left: 180px;
+	/*font-weight: bolder;*/
+	font-weight: 900;
+	color: white;
+}

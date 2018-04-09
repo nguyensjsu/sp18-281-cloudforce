@@ -14,6 +14,7 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
 	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
 	crossorigin="anonymous"></script>
+	<link href="https://fonts.googleapis.com/css?family=Overlock" rel="stylesheet">
 </head>
 <body>
 
@@ -23,8 +24,8 @@
 
 		<nav class="navbar navbar-expand-lg navbar-light">
 			<a class="navbar-brand" href="#">
-				<img className="logo-left"
-				src="logo.png"
+				<img class ="logo-left"
+				src="logo4.png"
 				alt="Freelancer Logo"
 				data-display="block">
 
@@ -56,8 +57,24 @@
 			</div>
 		</nav>
 
+		<!-- <div class="home-form-go">
+			Vishal
+		</div> -->
+		<img src="back.jpg" class="image-background mt-3">
 
-		<img src="back.jpg" class="image-background mt-5">
+		<form id="frmGetStarted" class="top-left px-4 pt-2" action="/vendor/search" method="get">
+			<h1 style="font-weight: 1000; font-size: 50px">GET STARTED!</h1>
+
+
+			<div class="form-group row">
+				<label for="StreetAddress"><h5 style="font-weight: 800">&nbsp&nbsp&nbspEnter your zip code or city and state:</h5></label>
+				<input type="text" class="form-control col-md-8 m-2" id="exampleInputEmail1"  id="StreetAddress" name="StreetAddress" placeholder="Street address or zip code" aria-label="Enter street address or zip code">
+				<button type="submit" id="frmGetStartedSubmit" class="btn btn-primary col-md-2 m-2">Go</button>
+			</div>
+
+			<!-- <input type="hidden" name="mode" value="Order"> -->
+
+		</form>
 	</div>
 </body>
 </html>
