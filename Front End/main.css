@@ -1,6 +1,3 @@
-
-
-
 .logo-left{
 	/*height : 150px;*/
 }
@@ -47,4 +44,17 @@
 	/*font-weight: bolder;*/
 	font-weight: 900;
 	color: white;
+}
+
+
+#brand-bar {
+	margin-top: 5px;
+    height: 32px;
+    line-height: 32px;
+    font-size: 15px !important;
+    float: right;
+}
+
+#brand-bar a{
+    color: #943D3D;
 }
