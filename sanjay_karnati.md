@@ -52,7 +52,11 @@ written to past years’ servers, most servers can be simple read-only replicas
 
 Can your application scale? Out of the box, many applications cannot scale well. They are not designed to handle scenarios like multiple users accessing the same pieces of data, load balanced servers, etc. Well-designed SaaS applications will need to have a strong layer between the data and the application so the data backend can scale separately from the business logic and presentation layers. They will also need to be able to provide their business logic via APIs so that mobile applications (and other non-Web clients) can be built, as well as enable integrations with partners' and customers' systems. Again, these are all things that are typically not addressed with "shrink wrapped" software, but for SaaS they are virtually mandatory.
 
+## Why application scalability
 
+An application scalability is the potential of an application to grow in time, being able to efficiently handle more and more requests per minute (RPM). It’s not just a simple tweak you can turn on/off, it’s a long-time process that touches almost every single item in your stack, including both hardware and software sides of the system.
+
+In case of problems you can keep adding new CPUs or increase memory limits, but by doing so, you’re just increasing the throughput, not the app performance. It’s not the way you should stick to when you see your app is starting to have efficiency problems. Scaling the app is not an easy thing and thus you should know your app very well before starting to think about how and when to scale it.
 
 
 
