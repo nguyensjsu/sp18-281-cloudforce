@@ -139,6 +139,29 @@ var order = function (req, res, state, ts) {
 
 
 
+var handle_deleteCartItem = function (req, res, next) {
+
+    var Id = req.param("Id");
+    console.log("In cart delete", Id);
+    console.log(Id);
+
+    var client = new Client();
+    client.delete(delete_cart_item + '/' + Id,
+        function (data, response_raw) {
+            res.redirect('/cart')
+            // client.get(get_cart,
+            //     function (data1, response_raw) {
+            //         jsdata = JSON.parse(data1)
+            //         console.log(jsdata.length);
+            //         res.render('cart', {data: jsdata})
+            //     });
+
+        });
+
+
+}
+
+
 var handle_get = function (req, res, next) {
     console.log("Get: ...");
     ts = new Date().getTime()
@@ -163,6 +186,8 @@ app.get('/', function (req, res, next) {
 */
 
 app.get('/', handle_get);
+
+app.post('/', handle_post);
 
 
 console.log("Server running on Port 8080...");
