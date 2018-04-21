@@ -23,7 +23,7 @@ var rabbitmq_user = "guest"
 var rabbitmq_pass = "guest"
 
 // MongoDB Config
-var mongodb_server = "localhost:27017"
+var mongodb_server = "mongodb://cmpe281:sreedevi@ds251889.mlab.com:51889/cloudforce"
 var mongodb_database = "cloudforce"
 var mongodb_collection = "Burgers"
 // NewServer configures and returns a Server.
@@ -56,6 +56,37 @@ func failOnError(err error, msg string) {
 func pingHandler(formatter *render.Render) http.HandlerFunc {
 	return func(w http.ResponseWriter, req *http.Request) {
 		formatter.JSON(w, http.StatusOK, struct{ Test string }{"API version 1.0 alive!"})
+	}
+}
+
+func getorderdetails(formatter *render.Render) http.HandlerFunc {
+	return func(w http.ResponseWriter, req *http.Request) {
+		// Open MongoDB Session
+
+		fmt.Println("inorderdetailds")
+
+		session, err := mgo.Dial(mongodb_server)
+		if err != nil {
+			panic(err)
+		}
+		defer session.Close()
+		session.SetMode(mgo.Monotonic, true)
+		c := session.DB(mongodb_database).C(mongodb_collection)
+
+		params := mux.Vars(req)
+		var id string = params["Id"]
+
+		t, _ := strconv.ParseInt(id, 10, 0);
+		fmt.Println(t)
+		// Get Gumball Inventory
+		var result bson.M
+		err = c.Find(bson.M{"Id": t}).One(&result)
+		if err != nil {
+			log.Fatal(err)
+		}
+		// Return Order Status
+		fmt.Println(result)
+		formatter.JSON(w, http.StatusOK, result)
 	}
 }
 
