@@ -40,3 +40,6 @@ Enabling a data storage evolution is more challenging. Upgrading database schema
 
 Keys to success
 Success with microservices doesn’t just happen. While the benefits are significant, microservices require careful planning if you want to achieve good outcomes. I've reviewed five key areas that you should address as you plan your move to microservices, but experienced professionals may have additional design tips.
+
+----------------------------------------------------------------------------------------------------------------------------------------
+I am building User Account microservice for the group project. User signup and login APIs are provided in the microservice and the user data is stored in the MongoDB that is running on the AWS EC2 instance. 

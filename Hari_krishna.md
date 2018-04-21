@@ -14,3 +14,59 @@ Further, because the Y axis allows segmentation of teams and ownership of code a
 ## Addressing Z-axis in AKF Cube.
 
 Whereas the Y axis addresses the splitting of dissimilar things (often along noun or verb boundaries), the Z-axis addresses segmentation of “similar” things.  Examples may include splitting customers along an unbiased modulus of customer_id, or along a somewhat biased (but beneficial for response time) geographic boundary.  Product catalogs may be split by SKU, and content may be split by content_id.  Z-axis scaling, like all of the axes, improves the solution’s transactional scalability and if fault isolated it’s availability. Because the software deployed to servers is essentially the same in each Z axis shard (but the data is distinct) there is no increase in organizational scalability.  Cache hit rates often go up with smaller data sets, and operational costs generally go down as commodity servers or smaller IaaS instances can be used.
+
+
+## What are the Problems with App Scaling
+
+Scalability issues when your project grows too large, but the application ability to scale is more about the whole system architecture, not only the framework itself. Building the project using The Rails Way is certainly not the best approach when your app is evolving rapidly, but it doesn’t mean that scaling an app is always a pain.
+
+Even if you don’t have performance or scalability problems like Twitter or Shopify, planning and developing the application in a proper way is priceless, regardless of the nature of potential problems. You may face dozens of different issues when it comes to scaling. A few general sources of your problems may be related to:
+
+limited physical resources like memory, CPUs etc.,
+
+wrong memory management,
+
+inefficient database engine,
+
+complicated database schema, bad indexing,
+
+poorly performed database queries,
+
+wrong server configuration,
+
+app server limitations,
+
+overall spaghetti code,
+
+inefficient caching,
+
+lack of monitoring tools,
+
+too many external dependencies,
+
+improper background jobs design.
+
+## What are microservices?
+
+Microservices - also known as the microservice architecture - is an architectural style that structures an application as a collection of loosely coupled services, which implement business capabilities. The microservice architecture enables the continuous delivery/deployment of large, complex applications. It also enables an organization to evolve its technology stack.
+
+## Microservice pros and cons
+Microservices pose a series of tradeoffs for software developers. 
+
+In terms of advantages, microservices:
+
+are easily deployed;
+require less development time;
+can scale quickly;
+can be reused in different projects;
+contain better fault isolation;
+can be deployed in relatively small teams; and
+work well with containers.
+
+
+However, there are also drawbacks with microservices, such as:
+
+potentially too much granularity;
+extra effort designing for communication between services;
+latency during heavy use; and
+complex testing.
