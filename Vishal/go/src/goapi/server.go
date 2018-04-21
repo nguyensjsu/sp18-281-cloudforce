@@ -90,4 +90,31 @@ func getorderdetails(formatter *render.Render) http.HandlerFunc {
 	}
 }
 
+
+// API Catalog items
+func getCatalog(formatter *render.Render) http.HandlerFunc {
+	return func(w http.ResponseWriter, req *http.Request) {
+		// Open MongoDB Session
+		session, err := mgo.Dial(mongodb_server)
+		if err != nil {
+			panic(err)
+		}
+		defer session.Close()
+		session.SetMode(mgo.Monotonic, true)
+		c := session.DB(mongodb_database).C(mongodb_collection)
+
+		// Get Gumball Inventory
+		var result []Burgers
+		err = c.Find(bson.M{}).All(&result)
+		fmt.Println(result)
+		if err != nil {
+			log.Fatal(err)
+		}
+		// Return Order Status
+		formatter.JSON(w, http.StatusOK, result)
+
+	}
+}
+
+
 // API Catalog items
