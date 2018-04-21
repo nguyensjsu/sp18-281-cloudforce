@@ -58,3 +58,32 @@
 
           </div>
       </nav>
+
+          <div id="products">
+
+              <br/>
+
+              <div class="style-font-header">
+                  Burger Menu
+              </div>
+              <div class="row">
+
+                  <form method="post"
+                        action="/cartorder?id=<%= data.Id %>&name=<%= data.Name %>&price=<%= data.Price %>&path=<%= data.Path %>">
+                      <div class="col-md-4 text-center">
+                          <div class="imgWrap"><img aria-hidden="true" typeof="foaf:Image" src="/images/<%= data.Path %>"
+                                                    alt="Sourdough King" title="Sourdough King"></div>
+                          <div class="title style-font-normal"><p class="text-center"><%= data.Name %> &nbsp
+                                  $<%= data.Price %></p></div>
+                          <a>
+                              <button type="submit" class="m-auto btn btn-primary">Add to Cart</button>
+                          </a>
+                      </div>
+                  </form>
+
+              </div>
+
+          </div>
+      </div>
+      </body>
+      </html>
