@@ -1,4 +1,4 @@
-MicroServices general Architecture:
+﻿MicroServices general Architecture:
 
 These are process that communicate with each other in many ways. Popularly these communicate through HTTP or sharing memory between processes. 
 
@@ -78,3 +78,78 @@ The reason this sacrifices C is because the writes go to the master, and then ta
 So you might use this in applications where, for example, you are offering the latest news story. If User A gets the latest news 10 seconds earlier than User B, this doesn't really matter. Of course, if it was a day later, then that would be a problem. The failure case of C is just around the time of the write and you want to keep that window of consistency small.
 
 There is also a concept of durability, which you can also be flexible with.
+
+
+
+How to connect to a Replica Set from Mongodb without authentication:
+err := req.ParseForm()
+		if err != nil {
+			panic(err)
+		}
+		v := req.Form
+		productId := req.Form.Get("id")
+	//	productId := data.id
+		//var uuid string = params["id"]
+		fmt.Println(v)
+		fmt.Println(v["id"])
+		fmt.Println("this is the product id")
+		fmt.Println(productId)
+
+		productIdInt, err := strconv.Atoi(productId)
+		fmt.Println(productIdInt);
+		if err != nil {
+			panic(err)
+		}
+
+		// Open MongoDB Session
+		session, err := mgo.Dial("mongodb://18.188.208.220:27017/burgers,mongodb://18.188.228.190:27017/burgers,mongodb://18.188.73.107:27017/burgers?replicaSet=cloud")
+        if err != nil {
+                panic(err)
+        }
+        defer session.Close()
+        session.SetMode(mgo.Eventual, true)
+       // c := session.DB(mongodb_database).C(mongodb_collection)
+        ordersKP := session.DB(mongodb_database).C(orderBurgers)
+
+       	// Get Gumball Inventory 
+      //  var result bson.M
+		var orderPranith bson.M
+       // err = c.Find(bson.M{"SerialNumber" : "1234998871109"}).One(&result)
+
+      /*  if err != nil {
+                log.Fatal(err)
+        }*/
+		err = ordersKP.Find(bson.M{"name":"test"}).One(&orderPranith)
+		if err!= nil {
+			log.Fatal(err)
+		}
+
+ 		//var count int = result["CountGumballs"].(int)
+     //   fmt.Println("Current Inventory:", count )
+ 		//var orderProduct string = orderPranith["products"].(string)
+		fmt.Println("Products Ordered:", orderPranith )
+
+		// Process Order IDs from Queue
+		/*var order_ids []string = queue_receive()
+		for i := 0; i < len(order_ids); i++ {
+			var order_id = order_ids[i]
+			fmt.Println("Order ID:", order_id)
+			var ord = orders[order_id] 
+			ord.OrderStatus = "Order Processed"
+			orders[order_id] = ord
+			count -= 1
+		}
+		fmt.Println( "Orders: ", orders , "New Inventory: ", count)
+
+		// Update Gumball Inventory
+		query := bson.M{"SerialNumber" : "1234998871109"}
+        change := bson.M{"$set": bson.M{ "CountGumballs" : count}}
+        err = c.Update(query, change)
+        if err != nil {
+                log.Fatal(err)
+        }*/
+
+		// Return Order Status
+		formatter.JSON(w, http.StatusOK, orderPranith)
+	}
+}
