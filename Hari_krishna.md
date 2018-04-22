@@ -46,3 +46,27 @@ too many external dependencies,
 
 improper background jobs design.
 
+## What are microservices?
+
+Microservices - also known as the microservice architecture - is an architectural style that structures an application as a collection of loosely coupled services, which implement business capabilities. The microservice architecture enables the continuous delivery/deployment of large, complex applications. It also enables an organization to evolve its technology stack.
+
+## Microservice pros and cons
+Microservices pose a series of tradeoffs for software developers. 
+
+In terms of advantages, microservices:
+
+are easily deployed;
+require less development time;
+can scale quickly;
+can be reused in different projects;
+contain better fault isolation;
+can be deployed in relatively small teams; and
+work well with containers.
+
+
+However, there are also drawbacks with microservices, such as:
+
+potentially too much granularity;
+extra effort designing for communication between services;
+latency during heavy use; and
+complex testing.
