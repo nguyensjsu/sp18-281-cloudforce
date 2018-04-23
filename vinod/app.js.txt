@@ -1,0 +1,42 @@
+var session = require('express-session');
+var get_items = "http://localhost:3000/items";
+var get_pizza_items = "http://localhost:3000/pizza_items";
+var get_order = "http://localhost:3000/order";
+var get_cart = "http://localhost:3000/cart";
+var post_cart = "http://localhost:3000/storeincart";
+var login="http://localhost:3000/login";
+//var post_login = "http://localhost:3000/login";
+var endpoint = "http://192.168.99.100:8000/goapi/order?apikey=vishalvannadakey";
+
+// added in v3: handlebars
+// https://www.npmjs.org/package/express3-handlebars
+// npm install express3-handlebars
+
+// added in v2: crypto
+// crypto functions:  http://nodejs.org/api/crypto.html
+//var app = express()
+
+
+var crypto = require('crypto');
+var fs = require('fs');
+var express = require('express');
+var Client = require('node-rest-client').Client;
+
+var app = express();
+app.use(express.bodyParser());
+app.use("/images", express.static(__dirname + '/images'));
+app.use("/public", express.static(__dirname + '/public'));
+// handlebars  = require('express3-handlebars');
+// hbs = handlebars.create();
+// app.engine('handlebars', hbs.engine);
+app.set('view engine', 'ejs');
+
+app.set('trust proxy', 1); // trust first proxy
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true }
+}));
+
+var secretKey = "kwRg54x2Go9iEdl49jFENRM12Mp711QI" ;
