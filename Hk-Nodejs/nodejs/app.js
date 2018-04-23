@@ -77,7 +77,12 @@ var handle_cartorder = function (req, res, next) {
     console.log(Price);
     console.log(Path);
 
+    var client = new Client();
+    client.post(post_cart + '/' + Id + '/' + Name + '/' + Price + '/' + Path,
+        function (data, response_raw) {
+            res.redirect('/cart')
 
+        });
 
 
 
