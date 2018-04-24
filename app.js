@@ -69,6 +69,26 @@ app.post('/logout', function (req, res) {
     console.log('Session Destroyed');
     res.status(200).send();
 });
+
+var handle_get_menu = function(req, res, next){
+    console.log( "In Get Menu" ) ;
+
+    var client = new Client();
+    client.get( get_items,
+        function(data, response_raw){
+            console.log( "In client.Get Menu" ) ;
+            jsdata = JSON.parse(data);
+            console.log(jsdata.length);
+            res.render('menu',{ data: jsdata })
+
+        });
+
+    console.log( "In out Get Menu" ) ;
+
+
+};
+
+
 bodyParser = require('body-parser').json();
 app.post('/login',bodyParser, login);
 app.post('/signup', users);
