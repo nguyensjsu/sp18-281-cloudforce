@@ -185,12 +185,57 @@ app.get('/', function (req, res, next) {
 
 */
 
+var handle_payment = function (req, res, next) {
+
+    var items = req.param("items");
+    var price = req.param("price");
+
+    console.log("in cart order");
+    console.log(items);
+    console.log(price);
+
+    var formData = new FormData();
+    formData.append('Items', items);
+    formData.append('Price', price);
+    formData.append('OrderStatus', "FGHJ");
+
+    formData.Items = items;
+    formData.Price = price;
+    formData.OrderStatus = 'Placed';
+
+    var args = {
+        data: {Items: items, OrderStatus: 'Placed', Price: price, UserName: 'vishal@gmail.com'},
+        headers: {"Content-Type": "application/json"}
+    };
+
+
+    var client = new Client();
+    client.post(payment, args,
+        function (data, response_raw) {
+            console.log(data)
+            jsdata = JSON.parse(data)
+            res.render('success', {data: jsdata})
+            // client.get(get_cart,
+            //     function (data1, response_raw) {
+            //         jsdata = JSON.parse(data1)
+            //         console.log(jsdata.length);
+            //         res.redirect('cart', {data: jsdata})
+            //     });
+
+        });
+
+
+}
+
+
 app.get('/', handle_get);
 
 
 app.post('/', handle_post);
 
 app.post('/cartorder', handle_cartorder);
+
+app.post('/payment', handle_payment);
 
 console.log("Server running on Port 8080...");
 
