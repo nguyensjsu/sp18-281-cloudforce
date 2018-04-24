@@ -52,3 +52,32 @@
                     <a class="nav-link" href="/login">Login</a>
                 </li>
             </ul>
+ <!-- <span class="navbar-text">
+                Navbar text with an inline element
+            </span> -->
+
+
+
+        </div>
+    </nav>
+
+    <div class="box">
+        <span style="margin-left: 120px;font-size: 30px;">CREATE ACCOUNT</span>
+        <hr style="width: 350px">
+
+        <div class="login-details">
+            First Name<br>
+            <input type="text"><br><br>
+            Last Name<br>
+            <input type="text"><br><br>
+            Email Address<br>
+            <input type="email"><br><br>
+            Password (min 8 characters)<br>
+            <input type="password"><br><br>
+            <button type="button" class="btn btn-primary btn-lg btn-block" style="background-color:maroon;width: 309px">
+                Create Account</button>
+        </div>
+    </div>
+</div>
+</body>
+</html>
