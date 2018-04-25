@@ -40,8 +40,24 @@ app.use(session({
 }));
 
 var secretKey = "kwRg54x2Go9iEdl49jFENRM12Mp711QI" ;
+var store = require('store');
 
-signup.ejs
-app.js
-package.json
-package-lock.json
+var handle_checklogin = function (req, res, next) {
+    console.log("inside login");
+    var username = req.param("username");
+    var password = req.param("password");
+    var client = new Client();
+    client.post(login + '/' + username + '/' + password,
+        function (data, response_raw) {
+            console.log("After GOLOGIN");
+            jsdata = JSON.parse(data);
+
+            if (jsdata == null) {
+                res.render('login', {error: 'invalid',logged:'no'})
+            }
+            store.set('user', {username: username});
+            // console.log(store.get('user'));
+
+            res.render('home', {logged: 'yes'})
+        });
+};
