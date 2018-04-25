@@ -40,3 +40,8 @@ app.use(session({
 }));
 
 var secretKey = "kwRg54x2Go9iEdl49jFENRM12Mp711QI" ;
+
+signup.ejs
+app.js
+package.json
+package-lock.json
