@@ -89,6 +89,17 @@ var handle_cartorder = function (req, res, next) {
 }
 
 
+var handle_get_cart = function (req, res, next) {
+    var client = new Client();
+    client.get(get_cart,
+        function (data, response_raw) {
+            jsdata = JSON.parse(data)
+            res.render('cart', {data: jsdata})
+
+        });
+
+
+}
 
 
 app.post('/cartorder', handle_cartorder);
