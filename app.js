@@ -85,6 +85,27 @@ var handle_get_menu = function(req, res, next){
 
     console.log( "In out Get Menu" ) ;
 
+};
+
+
+var handle= function(req, res, next){
+    console.log( "In Get Menu" ) ;
+
+    var client = new Client();
+    client.get( get_items,
+        function(data, response_raw){
+            console.log(jsdata.length);
+            res.render('menu',{ data: jsdata })
+
+        });
+
+    console.log( "In out Get Menu" ) ;
+
+    console.log( "In out Get Menu" ) ;
+
+    console.log( "In out Get Menu" ) ;
+
+    console.log( "In out Get Menu" ) ;
 
 };
 
