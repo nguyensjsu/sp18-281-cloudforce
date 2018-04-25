@@ -104,6 +104,8 @@ var handle_get_cart = function (req, res, next) {
 
 app.post('/cartorder', handle_cartorder);
 
+app.get('/cart', handle_get_cart);
+
 
 console.log("Server running on Port 8080...");
 
