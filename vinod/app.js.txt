@@ -61,3 +61,43 @@ var handle_checklogin = function (req, res, next) {
             res.render('home', {logged: 'yes'})
         });
 };
+
+
+var handle_login= function(req, res, next){
+    console.log( "In Login " ) ;
+
+    var client = new Client();
+    client.get( login,
+        function(data, response_raw){
+            jsdata = JSON.parse(data);
+            console.log(jsdata.length);
+            res.render('login',{ data: jsdata });
+
+        });
+
+
+    });
+    req.session.username=
+
+    console.log( "In out login" ) ;
+
+};
+
+var handle_signup= function(req, res, next){
+    console.log( "In Signup " ) ;
+    var username=req.param("username");
+    var password=req.param("password");
+    var firstname=req.param("firstname");
+    var lastname=req.param("lastname");
+    var client = new Client();
+    client.get( login,
+        function(data, response_raw){
+            jsdata = JSON.parse(data);
+            console.log(jsdata.length);
+            res.render('signup',{ data: jsdata });
+
+        });
+
+
+
+};
