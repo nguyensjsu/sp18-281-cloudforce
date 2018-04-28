@@ -138,6 +138,27 @@ var order = function (req, res, state, ts) {
 }
 
 
+var handle_cartorder = function (req, res, next) {
+
+    var Id = req.param("id");
+    var Name = req.param("name");
+    var Price = req.param("price");
+    var Path = req.param("path");
+
+
+    console.log("in cart order");
+    console.log(Id);
+    console.log(Name);
+    console.log(Price);
+    console.log(Path);
+
+
+    var client = new Client();
+    client.post(post_cart + '/' + Id + '/' + Name + '/' + Price + '/' + Path + '/' + localStorage.getItem('user'),
+        function (data, response_raw) {
+            res.redirect('/cart')
+        });
+}
 
 var handle_deleteCartItem = function (req, res, next) {
 

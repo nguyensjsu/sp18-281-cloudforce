@@ -90,6 +90,55 @@ func getorderdetails(formatter *render.Render) http.HandlerFunc {
 	}
 }
 
+func removefromCart(formatter *render.Render) http.HandlerFunc {
+	return func(w http.ResponseWriter, req *http.Request) {
+
+		fmt.Println("removecart")
+
+		params := mux.Vars(req)
+		var Id string = params["Id"]
+		var user string = params["User"]
+		t, _ := strconv.ParseInt(Id, 10, 0);
+		//
+		//var Price string = params["Price"]
+		//t1,_ := strconv.ParseInt(Price, 10, 0);
+		//
+		//var Name string = params["Name"]
+		//
+		//
+		//
+		//var Path string = params["Path"]
+		//
+		//
+		//var Cart_order = Cart {
+		//	Id: t,
+		//	Name: Name,
+		//	Price:t1,
+		//	Path:Path,
+		//}
+
+		session, err := mgo.Dial(mongodb_server)
+		if err != nil {
+			panic(err)
+		}
+		defer session.Close()
+		session.SetMode(mgo.Monotonic, true)
+		c := session.DB(mongodb_database).C(mongodb_collection2)
+		fmt.Printf("%T", c)
+		err = c.Remove(bson.M{"Id": t, "UserName": user})
+		//err = c.Insert(Cart_order)
+		formatter.JSON(w, http.StatusOK, struct{}{})
+		//err = c.Insert(ord)
+		////fmt.Println("Gumball Machine:", result )
+		////formatter.JSON(w, http.StatusOK, result)
+		//
+		//
+		//fmt.Println( "Orders: ", orders )
+
+	}
+}
+
+
 
 // API Catalog items
 func getCatalog(formatter *render.Render) http.HandlerFunc {
