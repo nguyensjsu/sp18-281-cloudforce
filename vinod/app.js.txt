@@ -75,3 +75,16 @@ var handle_signup = function (req, res, next) {
     res.render('signup');
 };
 
+var handle_checksignup = function (req, res, next) {
+    var username = req.param("username");
+    var password = req.param("password");
+    var firstname = req.param("firstname");
+    var lastname = req.param("lastname");
+    var client = new Client();
+    console.log(username);
+    console.log(password);
+    client.post(signup + '/' + username + '/' + password + '/' + firstname + '/' + lastname,
+        function (data, response_raw) {
+            res.render('login', {error: 'no'})
+        });
+};
