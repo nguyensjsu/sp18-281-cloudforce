@@ -38,7 +38,7 @@ func NewServer() *negroni.Negroni {
 func initRoutes(mx *mux.Router, formatter *render.Render) {
 	mx.HandleFunc("/ping", pingHandler(formatter)).Methods("GET")
 
-
+ mx.HandleFunc("/items", getCatalog(formatter)).Methods("GET")
 	mx.HandleFunc("/cart", getcartitems(formatter)).Methods("GET")
 	mx.HandleFunc("/storeincart/{Id}/{Name}/{Price}/{Path}", saveOrderInCart(formatter)).Methods("POST")
 
@@ -56,5 +56,30 @@ func failOnError(err error, msg string) {
 func pingHandler(formatter *render.Render) http.HandlerFunc {
 	return func(w http.ResponseWriter, req *http.Request) {
 		formatter.JSON(w, http.StatusOK, struct{ Test string }{"API version 1.0 alive!"})
+	}
+}
+
+// API Catalog items
+func getCatalog(formatter *render.Render) http.HandlerFunc {
+	return func(w http.ResponseWriter, req *http.Request) {
+		// Open MongoDB Session
+		session, err := mgo.Dial(mongodb_server)
+		if err != nil {
+			panic(err)
+		}
+		defer session.Close()
+		session.SetMode(mgo.Monotonic, true)
+		c := session.DB(mongodb_database).C(mongodb_collection)
+
+		// Get Gumball Inventory
+		var result []Burgers
+		err = c.Find(bson.M{}).All(&result)
+		fmt.Println(result)
+		if err != nil {
+			log.Fatal(err)
+		}
+		// Return Order Status
+		formatter.JSON(w, http.StatusOK, result)
+
 	}
 }
