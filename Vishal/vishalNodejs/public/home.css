@@ -40,6 +40,29 @@
     background-color: white !important;
 }
 
+.image-background{
+    max-width: 100%
+}
+
+.top-left {
+    background-color: rgba(153, 153, 153, 0.9);
+    position: absolute;
+    top: 165px;
+    left: 180px;
+    /*font-weight: bolder;*/
+    font-weight: 900;
+    color: white;
+}
+
+
+#brand-bar {
+    /*margin-top: 5px;*/
+    /*height: 32px;*/
+    /*line-height: 32px;*/
+    /*font-size: 15px !important;*/
+    /*float: right;*/
+}
+
 #brand-bar a{
     color: #943D3D;
 }
@@ -75,4 +98,8 @@ input{
 
 .width-100{
     width : 100%
+}
+
+.font-size-more{
+    font-size: 30px;
 }
