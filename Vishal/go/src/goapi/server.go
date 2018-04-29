@@ -138,6 +138,96 @@ func removefromCart(formatter *render.Render) http.HandlerFunc {
 	}
 }
 
+func saveOrderInDB(formatter *render.Render) http.HandlerFunc {
+	return func(w http.ResponseWriter, req *http.Request) {
+
+		//params := mux.Vars(req)
+		//var Id string = params["Items"]
+		//
+		//fmt.Println(Id)
+
+		var m order
+		_ = json.NewDecoder(req.Body).Decode(&m)
+		fmt.Println("Update Gumball Inventory To: ", m)
+
+		uuid := uuid.NewV4()
+		fmt.Println(uuid, m.Items)
+
+		var ord = orderSave{
+			Id:          uuid.String(),
+			OrderStatus: "Order Placed",
+			Items:       m.Items,
+			Price:       m.Price,
+		}
+
+
+
+		session, err := mgo.Dial(mongodb_server)
+		if err != nil {
+			panic(err)
+		}
+		defer session.Close()
+		session.SetMode(mgo.Monotonic, true)
+
+		//fmt.Printf("%T", c)
+		////var result []bson.M
+		////err = c.Find(bson.M{}).Limit(10).All(&result)
+		////if err != nil {
+		////	log.Fatal(err)
+		////}
+		//
+
+		b, err := json.Marshal(ord);
+		if err != nil {
+			fmt.Println(err)
+			return
+		}
+
+
+		queue_send(string(b))
+
+		arrays := queue_receive();
+
+
+		//for d := range arrays {
+		//	fmt.Println(d)
+		//}
+
+		c := session.DB(mongodb_database).C(mongodb_collection3)
+		for _, element := range arrays {
+			// element is the element from someSlice for where we are
+
+			order := &orderSave{}
+
+			err = json.Unmarshal([]byte(element), order)
+
+			err = c.Insert(order)
+			if err != nil {
+				fmt.Println(err)
+				return
+			}
+
+		}
+
+		d := session.DB(mongodb_database).C(mongodb_collection2)
+
+		fmt.Println(m.UserName)
+
+		d.RemoveAll(bson.M{"UserName": m.UserName})
+		//err = c.Insert(ord)
+		//
+		//d := session.DB(mongodb_database).C(mongodb_collection2)
+		//
+		//err = d.Remove(bson.M{"cart": "10"})
+
+		//fmt.Println("Gumball Machine:", result )
+		//formatter.JSON(w, http.StatusOK, result)
+
+		//fmt.Println("Orders: ", orders)
+		formatter.JSON(w, http.StatusOK, ord)
+
+	}
+}
 
 
 // API Catalog items
