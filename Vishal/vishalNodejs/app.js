@@ -183,6 +183,27 @@ var handle_deleteCartItem = function (req, res, next) {
 }
 
 
+var handle_get_cart = function (req, res, next) {
+    var client = new Client();
+    console.log(localStorage.getItem('user') == undefined);
+
+    if (localStorage.getItem('user') == undefined) {
+        console.log("No")
+    } else {
+        client.get(get_cart + '/' + localStorage.getItem('user'),
+            function (data, response_raw) {
+                jsdata = JSON.parse(data)
+                var temp;
+                if (localStorage.getItem('user') == undefined) {
+                    temp = 'no';
+                } else
+                    temp = 'yes';
+                res.render('cart', {data: jsdata, logged: temp})
+            });
+    }
+};
+
+
 var handle_get = function (req, res, next) {
     console.log("Get: ...");
     ts = new Date().getTime()
