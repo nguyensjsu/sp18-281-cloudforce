@@ -72,14 +72,14 @@
 
 
             <% for(var i=0; i < data.length; i++) { %>
-            <form method="post" style="width:300px; height:300px"
+            <form method="post" style="width:200px; height:200px"
                   action="/cartorder?id=<%= data[i].Id %>&name=<%= data[i].Name %>&price=<%= data[i].Price %>&path=<%= data[i].Path %>">
 
             <div class="col-md-12 text-center">
                 <div class="imgWrap" ><img aria-hidden="true" style="width:200px; height:200px" typeof="foaf:Image" src="/images/<%=i+101%>.JPG" alt="Sourdough King" title="Sourdough King"></div>
                 <div class="title style-font-normal"><p class="text-center"><%= data[i].Name%> &nbsp $<%= data[i].Price%></p></div>
 
-                    <button type="submit" class="m-auto btn btn-primary">Add to Cart</button>
+                    <button type="submit" class="m-auto btn btn-primary">Add  Cart</button>
             </div>
             </form>
             <%}%>
