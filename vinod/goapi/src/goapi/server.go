@@ -97,12 +97,22 @@ func signup(formatter *render.Render) http.HandlerFunc {
 	return func(w http.ResponseWriter, req *http.Request) {
 		params := mux.Vars(req)
 		// Open MongoDB Session
-		session, err := mgo.Dial(mongodb_server)
+		//session, err := mgo.Dial(mongodb_server)
+		session, err := mgo.DialWithInfo(&mgo.DialInfo{
+			Addrs:          []string{"54.201.235.180:27017", "54.69.252.51:27017", "52.38.221.198:27017", "34.212.32.182:27017", "34.217.64.2:27017"},
+			Timeout:        60 * time.Second,
+			Database:       "cloudforce",
+			Username:       "cloudforce",
+			Password:       "cmpe281",
+			ReplicaSetName: "vkcloud",
+		})
 		if err != nil {
 			panic(err)
 		}
 		defer session.Close()
-		session.SetMode(mgo.Monotonic, true)
+		fmt.Println("Session has the live Servers", session.LiveServers())
+		session.SetMode(mgo.Eventual, true)
+
 		c := session.DB(mongodb_database).C(mongodb_collection)
 		var username string = params["username"]
 		fmt.Println(username)
@@ -127,5 +137,4 @@ func signup(formatter *render.Render) http.HandlerFunc {
 
 	}
 }
-
 
