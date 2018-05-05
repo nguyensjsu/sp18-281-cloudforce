@@ -17,6 +17,13 @@ Users can further complete the transaction by making payment.
 
 Involves 5 Microservices i.e., Catalog,Orders,Users,Cart,Deals Microservices.
 
+## Architechture
+Replication Configuration
+<br/>
+![Screenshot_of ACL2](https://github.com/nguyensjsu/team281-cloudforce/blob/master/HariKrishna/Untitled%20Diagram%20(1).png)
+<br/>
+
+
 ## Link to Project Board<br>
 https://github.com/nguyensjsu/team281-cloudforce/projects/1
 
