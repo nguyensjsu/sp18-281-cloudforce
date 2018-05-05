@@ -23,11 +23,11 @@ And After Comparing all the ideas, we will choose the best one.
 
 Every team member, came up with an idea, The ideas were,
 
-Dropbox prototype,
-Freelance Prototype,
-Travel Application Prototype,
-Restauarant Application,
-Movie-ticket prototype.
+Dropbox prototype<br>
+Freelance Prototype<br>
+Travel Application Prototype<br>
+Restauarant Application<br>
+Movie-ticket prototype<br>
 
 After comparing all the ideas, we chose Restauarant application as the best one among them. It was simple in terms of UI, and simple to scale too.
 
