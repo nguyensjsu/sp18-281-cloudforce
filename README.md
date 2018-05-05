@@ -10,6 +10,12 @@ Vinod Katta<br>
 
 ## Creating a SAAS Application with Microservices
 
+Application to Order Burgers. 
+Application that facilitates users to Signup and Login and see a List of Burgers that are availaible 
+Users can add burgers and deals to the cart. 
+Users can further complete the transaction by making payment.
+
+Involves 5 Microservices i.e., Catalog,Orders,Users,Cart,Deals Microservices.
 
 ## Link to Project Board<br>
 https://github.com/nguyensjsu/team281-cloudforce/projects/1
@@ -48,5 +54,20 @@ Started working on the Goapi's.
 
 ## WEEK3
 
+Integrated the go api's done so far from all the team members and made an initial test.
+
+Modified the UI as required by making changes to the NodeJS ejs.
+
+Continued the work on go api's in respective microservices.
+
+Deployed the Nodejs code onto Heroku and made initial test.
 
 ## WEEK4
+
+Wrapped up writing the goapi's for the respective microservices
+
+Deplyed the go code onto respective ec2 instances.
+
+Tested the application functinoality.
+
+Tested Partition tolerance on the application.
