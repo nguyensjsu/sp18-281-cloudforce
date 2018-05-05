@@ -16,8 +16,8 @@ import (
 
 // MongoDB Config
 var mongodb_server = "localhost:27017"
-var mongodb_database = "cmpe281project"
-var mongodb_collection = "users"
+var mongodb_database = "cloudforce"
+var mongodb_collection = "Users"
 
 
 
