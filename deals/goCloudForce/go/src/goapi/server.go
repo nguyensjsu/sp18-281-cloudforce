@@ -141,7 +141,6 @@ func getDeals(formatter *render.Render) http.HandlerFunc {
 	}
 }
 
-// API Cart items
 func getcartitems(formatter *render.Render) http.HandlerFunc {
 	return func(w http.ResponseWriter, req *http.Request) {
 		// Open MongoDB Session

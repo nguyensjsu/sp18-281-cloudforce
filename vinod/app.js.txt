@@ -1,0 +1,110 @@
+var session = require('express-session');
+var get_items = "http://localhost:3000/items";
+var get_pizza_items = "http://localhost:3000/pizza_items";
+var get_order = "http://localhost:3000/order";
+var get_cart = "http://localhost:3000/cart";
+var post_cart = "http://localhost:3000/storeincart";
+var login="http://localhost:3000/login";
+//var post_login = "http://localhost:3000/login";
+var endpoint = "http://192.168.99.100:8000/goapi/order?apikey=vishalvannadakey";
+
+// added in v3: handlebars
+// https://www.npmjs.org/package/express3-handlebars
+// npm install express3-handlebars
+
+// added in v2: crypto
+// crypto functions:  http://nodejs.org/api/crypto.html
+//var app = express()
+
+
+var crypto = require('crypto');
+var fs = require('fs');
+var express = require('express');
+var Client = require('node-rest-client').Client;
+
+var app = express();
+app.use(express.bodyParser());
+app.use("/images", express.static(__dirname + '/images'));
+app.use("/public", express.static(__dirname + '/public'));
+// handlebars  = require('express3-handlebars');
+// hbs = handlebars.create();
+// app.engine('handlebars', hbs.engine);
+app.set('view engine', 'ejs');
+
+app.set('trust proxy', 1); // trust first proxy
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true,
+    cookie: { secure: true }
+}));
+
+var secretKey = "kwRg54x2Go9iEdl49jFENRM12Mp711QI" ;
+var store = require('store');
+
+var handle_checklogin = function (req, res, next) {
+    console.log("inside login");
+    var username = req.param("username");
+    var password = req.param("password");
+    var client = new Client();
+    client.post(login + '/' + username + '/' + password,
+        function (data, response_raw) {
+            console.log("After GOLOGIN");
+            jsdata = JSON.parse(data);
+
+            if (jsdata == null) {
+                res.render('login', {error: 'invalid',logged:'no'})
+            }
+            store.set('user', {username: username});
+            // console.log(store.get('user'));
+
+            res.render('home', {logged: 'yes'})
+        });
+};
+
+
+var handle_login= function(req, res, next){
+    console.log( "In Login " ) ;
+
+    var client = new Client();
+    client.get( login,
+        function(data, response_raw){
+            jsdata = JSON.parse(data);
+            console.log(jsdata.length);
+            res.render('login',{ data: jsdata });
+
+        });
+
+
+    });
+    req.session.username=
+
+    console.log( "In out login" ) ;
+
+};
+
+var handle_signup= function(req, res, next){
+    console.log( "In Signup " ) ;
+    var username=req.param("username");
+    var password=req.param("password");
+    var firstname=req.param("firstname");
+    var lastname=req.param("lastname");
+    var client = new Client();
+    client.get( login,
+        function(data, response_raw){
+            jsdata = JSON.parse(data);
+            console.log(jsdata.length);
+            res.render('signup',{ data: jsdata });
+
+        });
+
+
+
+};
+app.get('/login',handle_login);
+
+app.get('/signup',handle_signup);
+
+console.log( "Server running on Port 8080..." ) ;
+
+app.listen(8080);
